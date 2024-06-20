@@ -14,7 +14,6 @@ set(HEADERS
 
 add_executable(check class.cpp test.cpp)
 add_executable(singleton_app ${SOURCES} ${HEADERS})
-add_executable(my_test_app test.cpp class.cpp)
 
 target_link_libraries(check PRIVATE gtest gtest_main)
 
@@ -26,5 +25,4 @@ target_link_libraries(my_test_app GTest::GTest GTest::Main)
 add_test(NAME MyTest COMMAND my_test_app)
 
 aux_source_directory(./ SRC_LIST)
-
-add_executable(my_test_app ${SRC_LIST})
+add_executable(my_test_app test.cpp class.cpp)
