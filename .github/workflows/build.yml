@@ -1,1 +1,25 @@
+version: 2
 
+cmake:
+  source_dir: .
+  binary_dir: _build
+  generator: "Unix Makefiles"
+  cache_variables:
+    - CMAKE_BUILD_TYPE: "Release"
+  options:
+    - "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+
+jobs:
+  - id: build
+    type: cmake
+    description: "Building the project"
+    command: "make"
+    arguments:
+      - "-j4"
+
+  - id: run_tests
+    type: make
+    description: "Running tests"
+    command: "./singleton_app"
+    requires:
+      - build
