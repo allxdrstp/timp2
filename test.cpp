@@ -13,7 +13,7 @@ void test_singleton() {
     }
 }
 
-int main() {
+int test_main() {
     test_singleton();
     return 0;
 }
