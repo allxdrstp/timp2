@@ -24,3 +24,7 @@ enable_testing()
 target_link_libraries(my_test_app GTest::GTest GTest::Main)
 
 add_test(NAME MyTest COMMAND my_test_app)
+
+aux_source_directory(./ SRC_LIST)
+
+add_executable(my_test_app ${SRC_LIST})
