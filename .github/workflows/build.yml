@@ -27,7 +27,7 @@ jobs:
       run: cmake --build build --config Release
 
     - name: ls
-      run: ls && echo "_________" && ls _build
+      run: ls && echo "_________" && ls ../_build
 
     - name: Test
       #working-directory: _build
