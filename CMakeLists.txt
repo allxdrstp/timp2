@@ -20,9 +20,9 @@ target_link_libraries(check PRIVATE gtest gtest_main)
 find_package(GTest REQUIRED)
 enable_testing()
 
-target_link_libraries(my_test_app GTest::GTest GTest::Main)
-
 add_test(NAME MyTest COMMAND my_test_app)
 
 aux_source_directory(./ SRC_LIST)
 add_executable(my_test_app test.cpp class.cpp)
+
+target_link_libraries(my_test_app GTest::GTest GTest::Main)
