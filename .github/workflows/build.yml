@@ -14,16 +14,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Clean build directory
+      run: rm -rf build
+
     - name: Set up CMake
       uses: jwlawson/actions-setup-cmake@v2
-
+      
     - name: Generate build files
-      run: cmake -S . -B _build -DCMAKE_BUILD_TYPE=Release
+      run: cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
-      run: cmake --build _build --config Release
-      working-directory: _build
+      run: cmake --build build --config Release
 
-    - name: Run tests
-      run: _build/test_app
-      working-directory: _build
+    - name: Test
+      run: ctest --verbose
