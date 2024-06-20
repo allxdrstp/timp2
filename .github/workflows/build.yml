@@ -15,10 +15,15 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up CMake
-      uses: jwlawson/actions-setup-cmake@v2
+      uses: actions/setup-cmake@v3
+
+    - name: Generate build files
+      run: cmake -S . -B _build -DCMAKE_BUILD_TYPE=Release
 
     - name: Build
-      run: cmake --build . --config Release
+      run: cmake --build _build --config Release
+      working-directory: _build
 
-    - name: Test
-      run: ctest --verbose
+    - name: Run tests
+      run: _build/test_app
+      working-directory: _build
