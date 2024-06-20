@@ -26,6 +26,9 @@ jobs:
     - name: Build
       run: cmake --build build --config Release
 
+    - name: ls
+      run: ls && echo "_________" && ls build
+
     - name: Test
       run: ctest --verbose
       working-directory: _build
