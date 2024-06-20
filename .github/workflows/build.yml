@@ -1,25 +1,24 @@
-version: 2
+name: Build and Test
 
-cmake:
-  source_dir: .
-  binary_dir: _build
-  generator: "Unix Makefiles"
-  cache_variables:
-    - CMAKE_BUILD_TYPE: "Release"
-  options:
-    - "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
-  - id: build
-    type: cmake
-    description: "Building the project"
-    command: "make"
-    arguments:
-      - "-j4"
+  build:
+    runs-on: ubuntu-latest
 
-  - id: run_tests
-    type: make
-    description: "Running tests"
-    command: "./singleton_app"
-    requires:
-      - build
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up CMake
+      uses: actions/setup-cmake@v2
+
+    - name: Build
+      run: cmake --build . --config Release
+
+    - name: Test
+      run: ctest --verbose
