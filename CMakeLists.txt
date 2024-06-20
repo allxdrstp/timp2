@@ -12,15 +12,15 @@ set(HEADERS
     class.h
 )
 
+add_executable(check class.cpp test.cpp)
 add_executable(singleton_app ${SOURCES} ${HEADERS})
 add_executable(my_test_app test.cpp class.cpp)
 
-add_executable(check class.cpp test.cpp)
 target_link_libraries(check PRIVATE gtest gtest_main)
 
 find_package(GTest REQUIRED)
 enable_testing()
 
-target_link_libraries(my_test_app GTest::gtest_main)
+target_link_libraries(my_test_app GTest::GTest GTest::Main)
 
 add_test(NAME MyTest COMMAND my_test_app)
