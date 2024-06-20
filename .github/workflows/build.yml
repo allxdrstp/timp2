@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Clean build directory
-      run: rm -rf build && apt install libgtest-dev
+      run: rm -rf build && sudo apt install -y libgtest-dev
 
     - name: Set up CMake
       uses: jwlawson/actions-setup-cmake@v2
