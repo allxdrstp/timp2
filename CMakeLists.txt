@@ -13,6 +13,7 @@ set(HEADERS
 )
 
 add_executable(singleton_app ${SOURCES} ${HEADERS})
+add_executable(my_test_app test.cpp class.cpp)
 
 add_executable(check class.cpp test.cpp)
 target_link_libraries(check PRIVATE gtest gtest_main)
