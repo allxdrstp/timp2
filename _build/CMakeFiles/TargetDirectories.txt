@@ -1,0 +1,3 @@
+/home/alexandra/allxdrstp/workspace/zadanie/_build/CMakeFiles/singleton_app.dir
+/home/alexandra/allxdrstp/workspace/zadanie/_build/CMakeFiles/edit_cache.dir
+/home/alexandra/allxdrstp/workspace/zadanie/_build/CMakeFiles/rebuild_cache.dir
