@@ -2,7 +2,7 @@
 #include "gtest/gtest.h"
 #include <iostream>
 
-void TEST(tests, test1) {
+TEST(tests, test1) {
     std::cout << "Running test_singleton..." << std::endl;
     A* pa1 = A::getInstance();
     A* pa2 = A::getInstance();
