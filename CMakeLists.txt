@@ -12,13 +12,15 @@ set(HEADERS
     class.h
 )
 
-# Включение папки с зависимостями, если они есть
-# include_directories(dependencies)
-
-# Добавление исполняемых файлов
 add_executable(singleton_app ${SOURCES} ${HEADERS})
 
 add_executable(check class.cpp test.cpp)
 target_link_libraries(check PRIVATE gtest gtest_main)
-# Линковка с библиотеками, если они есть
-# target_link_libraries(${PROJECT_NAME} PRIVATE library1 library2)
+
+find_package(GTest REQUIRED)
+enable_testing()
+
+add_executable(my_test_app test.cpp)
+target_link_libraries(my_test_app GTest::gtest_main)
+
+add_test(NAME MyTest COMMAND my_test_app)
