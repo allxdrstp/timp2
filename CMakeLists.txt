@@ -21,7 +21,6 @@ target_link_libraries(check PRIVATE gtest gtest_main)
 find_package(GTest REQUIRED)
 enable_testing()
 
-add_executable(my_test_app test.cpp)
 target_link_libraries(my_test_app GTest::gtest_main)
 
 add_test(NAME MyTest COMMAND my_test_app)
